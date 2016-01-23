@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>模板管理</title>
+<link rel="stylesheet" type="text/css" href="css/easyui_themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="css/easyui_themes/icon.css">
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<script src="js/datagrid-detailview.js" type="text/javascript"></script>
+<script src="js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+<script src="js/templateManagement.js" type="text/javascript"></script>
+</head>
+<body class="easyui-layout" data-options="fit:true">
+	<div data-options="region:'north',border:true" class="header" style="height:100px;">
+		<div id="logo"><h1 style="font-size:30px;color:black;margin-top:20px;">短信群发系统</h1></div>
+	</div>
+	<div data-options="region:'center',border:false">
+		<table id="template_list"></table>
+	</div>
+	<div data-options="region:'south',border:false"  style="height:40px;" class="footer">
+		<div style="text-align:center;height:30px;">Copyright@1999-2015 无锡市同步电子有限公司</div> 
+	</div>
+	<div id="menu">
+		<a id="add_template_btn" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加模板</a>
+		<a id="download_template_btn" class="easyui-linkbutton" data-options="iconCls:'icon-download'">下载模板</a>
+		<form method="post" id="downloadFile">
+		</form>
+	</div>
+	
+	<div id="add_template_dialog" style="width:600px;">
+		<div style="height:30%">
+			<table>
+				<tr>
+					<td>大鱼模板编号：</td>
+					<td><input type="text" id="input_template_code"/></td>
+				</tr>
+				<tr>
+					<td>模板名称：</td>
+					<td><input type="text" id="input_template_name"/></td>
+				</tr>
+				<tr>
+					<td>模板内容：</td>
+					<td><textarea id="input_template_content" cols="60" rows="5" ></textarea></td>
+				</tr>
+			</table>
+		</div>
+		<div style="height:70%;width:100%">
+			<table id="excel_column_list"></table>
+		</div>
+	</div>
+	<div id="add_excel_column_menu">
+		<a id="add_excel_column_btn" class="easyui-linkbutton" data-options="iconCls:'icon-add'">添加</a>
+		<p><font color="red">注意：excel的列号应该和模板中$()中的内容对应,并且从E开始</font></p>
+	</div>
+	<div id="validate_template">
+		<p><font color="red">请输入可用的手机号码</font></p>
+		<table>
+			<tr>
+				<td>电话号码：</td>
+				<td><input type="text" id="input_phone_num" /></td>
+			</tr>
+		</table>
+	</div>
+</body>
+</html>

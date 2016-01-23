@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>短信群发系统</title>
+<link rel="stylesheet" type="text/css" href="css/easyui_themes/default/easyui.css">
+<link rel="stylesheet" type="text/css" href="css/easyui_themes/icon.css">
+<link rel="stylesheet" type="text/css" href="css/index.css">
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript" src="js/jquery.easyui.min.js"></script>
+<script src="js/easyui-lang-zh_CN.js" type="text/javascript"></script>
+<script src="js/index.js" type="text/javascript"></script>
+</head>
+<body class="easyui-layout" data-options="fit:true">
+	<div data-options="region:'north',border:true" class="header" style="height:100px;">
+		<div id="logo"><h1 style="font-size:30px;color:black;margin-top:20px;">短信群发系统</h1></div>
+	</div>
+    <div data-options="region:'center',border:false">
+    	<div style="height:20%">
+			<div id="tabs" class="easyui-tabs">
+				<div title="导入短信数据" style="height:100%">
+					<form method="post" enctype="multipart/form-data" id="importForm" name="form1">
+						<table>
+							<tr>
+								<td><input id="import_text" readonly name="import_text" style="width:300px;height:30px"/></td>
+								<td><a href="javascript:void(0)" class="easyui-linkbutton" onclick="import_file.click();">选择Excel文件</a></td>
+								<td><input type="file" name="file1" id="import_file" style="display:none">
+								<a href="javascript:void(0)" class="easyui-linkbutton" id="import_submit">导入数据</a></td>
+							</tr>
+						</table>
+					</form>
+				</div>
+				
+				<!-- <div title="查询">
+					<form id="searchForm" method="POST">
+						<table class="search_table">
+							<tr>
+								<td class="td_tbl">系统:</td>
+								<td><input type="text" id="input_system" name="input_system"/></td>
+								<td class="td_tbl">公司:</td>
+								<td><input type="text" id="input_company" name="input_company"/></td>
+								<td class="td_tbl">抽样日期(开始):</td>
+								<td><input type="text" id="input_date_start" name="input_date_start" class="easyui-datebox" data-options="editable:false"/></td>
+								<td class="td_tbl">抽样日期(结束):</td>
+								<td><input type="text" id="input_date_end" name="input_date_end" class="easyui-datebox" data-options="editable:false"/></td>
+							</tr>
+							<tr>
+								<td class="td_tbl">抽样数量:</td>
+								<td><input type="text" id="input_sample_number" name="input_boardName"/></td>
+								<td class="td_tbl">状态:</td>
+								<td><input type="text" id="input_status" name="input_status"/></td>
+								<td align="center">
+									<a id="search_btn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-search'">查询</a>
+									<a id="reset_btn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-redo'">重置</a>
+								</td>
+							</tr>
+						</table>
+					</form>
+				</div> -->
+			</div>
+		</div>
+		<div style="height:80%">
+			<table id="list_datagrid"></table>
+		</div>
+	</div>
+	<div id="chat_div">
+		<table id="chat_datagrid"></table>
+	</div>
+	<div id="resend">
+		<a id="select_all_fail_btn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-resend'">失败全选</a>
+		<a id="resend_btn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-resend'">失败重新发送</a>
+		<a id="tongji_btn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-chart_bar'">短信发送及时率</a>
+		<a id="sum_tongji_btn" href="javascript:void(0)" class="easyui-linkbutton" data-options="iconCls:'icon-chart_bar'">统计查询</a>
+	</div>
+	<div id="wait_receipt_count">
+		<div id="select_date_datebox"></div>
+		<table id="wait_receipt_count_datagrid"></table>
+	</div>
+    <div id="progress" style="text-align:center"><h2 id="checkData">正在验证并发送，请稍后...</h2></div>
+	<div id="progress1" style="text-align:center"><textarea id="errorMassge" rows="13" cols="55" disabled style="margin-top:20px"></textarea></div>
+	<div id="progress2" style="text-align:center"><h2 id="checkData">正在重新发送，请稍后...</h2></div>
+    <div data-options="region:'south',border:false"  style="height:40px;" class="footer">
+		<div style="text-align:center;height:30px;">Copyright@1999-2015 无锡市同步电子有限公司</div> 
+	</div>
+</body>
+</html>
